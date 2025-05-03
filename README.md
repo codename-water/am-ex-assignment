@@ -49,15 +49,6 @@ To view the test report:
 npm run report
 ```
 
-## Assumptions
-
-1. The website structure and element selectors remain consistent
-2. The test environment has stable internet connectivity
-3. The website is accessible from the test environment
-4. Form validation rules remain consistent
-5. The website supports the latest version of Chrome
-6. The website's UI elements are accessible via the provided selectors
-
 ## Notes
 
 - Tests use dummy data for form filling
