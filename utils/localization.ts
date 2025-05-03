@@ -7,7 +7,7 @@ export interface LocalizedStrings {
     saveAndContinue: string;
     continue: string;
     formCompletionTitle: string;
-    }
+}
 
 const localizedStrings: Record<Language, LocalizedStrings> = {
     fr: {
@@ -42,4 +42,4 @@ export class Localization {
     static getCurrentLanguage(): Language {
         return this.currentLanguage;
     }
-} 
+}

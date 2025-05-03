@@ -1,8 +1,18 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { BasePage } from './base-page';
 import { FinancialInformationPage } from './financial-information-page';
 
-const mockData = {
+const mockData: {
+    placeOfBirth: string;
+    departmentOfBirth: string;
+    countryOfBirth: string;
+    nationality: string;
+    country: string;
+    residentialAddress: string;
+    postcode: string;
+    city: string;
+    residentialStatus: string;
+} = {
     placeOfBirth: 'Paris',
     departmentOfBirth: '001',
     countryOfBirth: '250',
@@ -15,17 +25,17 @@ const mockData = {
 };
 
 export class PersonalInformationPage extends BasePage {
-    private readonly birthNameCheckbox = this.page.locator('label[for="fieldControl-input-birthNameCheck"]').nth(1);
-    private readonly placeOfBirthInput = this.page.locator('input[id="fieldControl-input-placeOfBirth"]');
-    private readonly departmentOfBirthSelect = this.page.locator('select[id="fieldControl-input-departmentOfBirth"]');
-    private readonly countryOfBirthSelect = this.page.locator('select[id="fieldControl-input-countryOfBirth"]');
-    private readonly nationalitySelect = this.page.locator('select[id="fieldControl-input-nationality"]');
-    private readonly countrySelect = this.page.locator('select[id="fieldControl-input-country"]');
-    private readonly residentialAddressInput = this.page.locator('input[id="fieldControl-input-residentialAddressLine2"]');
-    private readonly postcodeInput = this.page.locator('input[id="fieldControl-input-postcode"]');
-    private readonly cityInput = this.page.locator('input[id="fieldControl-input-cityTown"]');
-    private readonly residentialStatusSelect = this.page.locator('select[id="fieldControl-input-personalResidentialStatus"]');
-    private readonly saveAndContinueButton = this.page.locator('button[type="submit"].css-19hct2l');
+    private readonly birthNameCheckbox: Locator = this.page.locator('label[for="fieldControl-input-birthNameCheck"]').nth(1);
+    private readonly placeOfBirthInput: Locator = this.page.locator('input[id="fieldControl-input-placeOfBirth"]');
+    private readonly departmentOfBirthSelect: Locator = this.page.locator('select[id="fieldControl-input-departmentOfBirth"]');
+    private readonly countryOfBirthSelect: Locator = this.page.locator('select[id="fieldControl-input-countryOfBirth"]');
+    private readonly nationalitySelect: Locator = this.page.locator('select[id="fieldControl-input-nationality"]');
+    private readonly countrySelect: Locator = this.page.locator('select[id="fieldControl-input-country"]');
+    private readonly residentialAddressInput: Locator = this.page.locator('input[id="fieldControl-input-residentialAddressLine2"]');
+    private readonly postcodeInput: Locator = this.page.locator('input[id="fieldControl-input-postcode"]');
+    private readonly cityInput: Locator = this.page.locator('input[id="fieldControl-input-cityTown"]');
+    private readonly residentialStatusSelect: Locator = this.page.locator('select[id="fieldControl-input-personalResidentialStatus"]');
+    private readonly saveAndContinueButton: Locator = this.page.locator('button[type="submit"].css-19hct2l');
 
     constructor(page: Page) {
         super(page);

@@ -1,8 +1,17 @@
-import { Page } from '@playwright/test';
+import { Page, Locator } from '@playwright/test';
 import { BasePage } from './base-page';
 import { SecurityInformationPage } from './security-information-page';
 
-const mockData = {
+const mockData: {
+    iban: string;
+    bic: string;
+    bankingSeniority: string;
+    annualIncome: string;
+    additionalIncome: string;
+    totalAssets: string;
+    occupation: string;
+    occupationType: string;
+} = {
     iban: 'FR7630006000011234567890189',
     bic: 'BNPAFRPP',
     bankingSeniority: '0500',
@@ -14,16 +23,16 @@ const mockData = {
 };
 
 export class FinancialInformationPage extends BasePage {
-    private readonly ibanInput = this.page.locator('input[id="fieldControl-input-bankAccountNumber"]');
-    private readonly bicInput = this.page.locator('input[id="fieldControl-input-bankIdentifierCode"]');
-    private readonly bankingSenioritySelect = this.page.locator('select[id="fieldControl-input-tenureOfAccount"]');
-    private readonly annualIncomeInput = this.page.locator('input[id="fieldControl-input-annualPersonalIncome"]');
-    private readonly additionalIncomeYesRadio = this.page.locator('labelt[for="hasAdditionalIncome1-YES"]');
-    private readonly additionalIncomeNoRadio = this.page.locator('label[for="hasAdditionalIncome1-NO"]');
-    private readonly totalAssetsSelect = this.page.locator('select[id="fieldControl-input-totalAssets"]');
-    private readonly occupationSelect = this.page.locator('select[id="fieldControl-input-occupation"]');
-    private readonly occupationTypeSelect = this.page.locator('select[id="fieldControl-input-occupationDescription"]');
-    private readonly saveAndContinueButton = this.page.locator('button[type="submit"]');
+    private readonly ibanInput: Locator = this.page.locator('input[id="fieldControl-input-bankAccountNumber"]');
+    private readonly bicInput: Locator = this.page.locator('input[id="fieldControl-input-bankIdentifierCode"]');
+    private readonly bankingSenioritySelect: Locator = this.page.locator('select[id="fieldControl-input-tenureOfAccount"]');
+    private readonly annualIncomeInput: Locator = this.page.locator('input[id="fieldControl-input-annualPersonalIncome"]');
+    private readonly additionalIncomeYesRadio: Locator = this.page.locator('label[for="hasAdditionalIncome1-YES"]');
+    private readonly additionalIncomeNoRadio: Locator = this.page.locator('label[for="hasAdditionalIncome1-NO"]');
+    private readonly totalAssetsSelect: Locator = this.page.locator('select[id="fieldControl-input-totalAssets"]');
+    private readonly occupationSelect: Locator = this.page.locator('select[id="fieldControl-input-occupation"]');
+    private readonly occupationTypeSelect: Locator = this.page.locator('select[id="fieldControl-input-occupationDescription"]');
+    private readonly saveAndContinueButton: Locator = this.page.locator('button[type="submit"]');
 
     constructor(page: Page) {
         super(page);

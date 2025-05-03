@@ -3,12 +3,13 @@ import { BasePage } from './base-page';
 import { Localization } from '../utils/localization';
 
 export class FormCompletionPage extends BasePage {
-    private readonly formCompletionMessage: Locator = this.page.locator('heading-4');
-    private readonly continueButton: Locator = this.page.locator(`button:has-text("${Localization.getString('continue')}")`);
-    
+    private readonly formCompletionMessage: Locator;
+    private readonly continueButton: Locator;
 
     constructor(page: Page) {
         super(page);
+        this.formCompletionMessage = this.page.locator('heading-4');
+        this.continueButton = this.page.locator(`button:has-text("${Localization.getString('continue')}")`);
     }
 
     async verifyFormCompletion(): Promise<void> {

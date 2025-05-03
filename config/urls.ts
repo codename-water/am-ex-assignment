@@ -41,4 +41,4 @@ export class URLManager {
     static getAllCardsUrl(): string {
         return this.getUrls().allCardsUrl;
     }
-} 
+}

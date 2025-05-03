@@ -1,11 +1,18 @@
-import { expect, Page } from '@playwright/test';
+import { expect, Page, Locator } from '@playwright/test';
 import { BasePage } from './base-page';
 import { PersonalInformationPage } from './personal-information-page';
 import { faker } from '@faker-js/faker';
 
-const mockData = {
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
+const mockData: {
+    firstName: string;
+    lastName: string;
+    dateOfBirth: string;
+    email: string;
+    phoneCountry: { label: string };
+    phoneNumber: string;
+} = {
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
     dateOfBirth: faker.date.birthdate({ min: 18, max: 65, mode: 'age' }).toLocaleDateString('en-GB'),
     email: faker.internet.email(),
     phoneCountry: { label: 'France +33' },
@@ -13,14 +20,14 @@ const mockData = {
 };
 
 export class ContactInformationPage extends BasePage {
-    private readonly mrTitleRadio = this.page.locator('label[for="MR"]');
-    private readonly firstNameInput = this.page.locator('input[id="fieldControl-input-firstName"]');
-    private readonly lastNameInput = this.page.locator('input[id="fieldControl-input-lastName"]');
-    private readonly dateOfBirthInput = this.page.locator('input[id="fieldControl-input-dateOfBirth"]');
-    private readonly emailInput = this.page.locator('input[id="fieldControl-input-email"]');
-    private readonly phoneCountrySelect = this.page.locator('select[id="countryCode"]');
-    private readonly phoneNumberInput = this.page.locator('input[id="fieldControl-input-mobilePhoneNumber"]');
-    private readonly saveAndContinueButton = this.page.locator('button[type="submit"].css-19hct2l');
+    private readonly mrTitleRadio: Locator = this.page.locator('label[for="MR"]');
+    private readonly firstNameInput: Locator = this.page.locator('input[id="fieldControl-input-firstName"]');
+    private readonly lastNameInput: Locator = this.page.locator('input[id="fieldControl-input-lastName"]');
+    private readonly dateOfBirthInput: Locator = this.page.locator('input[id="fieldControl-input-dateOfBirth"]');
+    private readonly emailInput: Locator = this.page.locator('input[id="fieldControl-input-email"]');
+    private readonly phoneCountrySelect: Locator = this.page.locator('select[id="countryCode"]');
+    private readonly phoneNumberInput: Locator = this.page.locator('input[id="fieldControl-input-mobilePhoneNumber"]');
+    private readonly saveAndContinueButton: Locator = this.page.locator('button[type="submit"].css-19hct2l');
 
     constructor(page: Page) {
         super(page);

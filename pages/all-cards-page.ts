@@ -20,7 +20,7 @@ export class AllCardsPage extends BasePage {
         await this.handleCookieConsent('accept');
         await expect(this.cardContainers.first()).toBeVisible({ timeout: 10000 });
 
-        const goldCardContainer = this.cardContainers.filter({
+        const goldCardContainer: Locator = this.cardContainers.filter({
             has: this.page.locator(this.heading, { hasText: 'Carte Gold American Express' })
         });
 
