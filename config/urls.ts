@@ -7,11 +7,11 @@ export interface URLConfig {
 
 const urls: Record<Country, URLConfig> = {
     fr: {
-        baseUrl: 'https://www.americanexpress.com/fr-fr/?inav=NavLogo',
-        allCardsUrl: 'https://www.americanexpress.com/fr/carte-de-paiement/types-cartes/cartes-proprietaires/?intlink=fr-fr-hp-product1-all-pry_cartes-01032021',
+        baseUrl: 'https://www.americanexpress.com/fr-fr/',
+        allCardsUrl: 'https://www.americanexpress.com/fr/carte-de-paiement/types-cartes/cartes-proprietaires/',
     },
     en: {
-        baseUrl: 'https://www.americanexpress.com/en-gb/?inav=NavLogo',
+        baseUrl: 'https://www.americanexpress.com/en-gb/',
         allCardsUrl: '',
     }
 };

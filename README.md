@@ -5,10 +5,9 @@ This framework is designed to test the UI elements and flow of the French Americ
 ## Overview
 
 The framework tests the following flow:
-1. FR Homepage -> Cartes American Express
-2. All Cards page -> Gold Card "En Savior Plus"
-3. Gold Card Description -> "Demandez Votre Carte"
-4. User Details page -> Form filling and validation
+1. All Cards page -> Gold Card view more
+2. Selected Gold card -> User form
+2. Fill form details -> Validate the form completion
 
 ## Prerequisites
 
@@ -26,22 +25,6 @@ npm install
 3. Install Playwright browsers:
 ```bash
 npx playwright install
-```
-
-## Project Structure
-
-```
-├── pages/                 # Page Object Models
-│   ├── base-page.ts      # Base page class
-│   ├── home-page.ts      # Home page
-│   ├── all-cards-page.ts # All cards page
-│   ├── gold-card-page.ts # Gold card page
-│   └── user-details-page.ts # User details page
-├── tests/                # Test files
-│   └── amex-flow.spec.ts # Main test file
-├── playwright.config.ts  # Playwright configuration
-├── tsconfig.json         # TypeScript configuration
-└── package.json          # Project dependencies
 ```
 
 ## Running Tests

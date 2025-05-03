@@ -4,11 +4,16 @@
   "description": "UI Testing Framework for American Express Credit Card Application",
   "scripts": {
     "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:debug": "playwright test --debug",
     "report": "playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.52.0",
     "@types/node": "^20.8.9",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.7.0"
   }
 }
