@@ -1,0 +1,14 @@
+{
+  "name": "amex-fr-ui-tests",
+  "version": "1.0.0",
+  "description": "UI Testing Framework for American Express Credit Card Application",
+  "scripts": {
+    "test": "playwright test",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^20.8.9",
+    "typescript": "^5.2.2"
+  }
+}
