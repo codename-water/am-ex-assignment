@@ -1,12 +1,13 @@
 import { expect, Page } from '@playwright/test';
 import { BasePage } from './base-page';
 import { PersonalInformationPage } from './personal-information-page';
+import { faker } from '@faker-js/faker';
 
 const mockData = {
-    firstName: 'Test',
-    lastName: 'User',
-    dateOfBirth: '01/01/1990',
-    email: 'test.user@example.com',
+    firstName: faker.name.firstName(),
+    lastName: faker.name.lastName(),
+    dateOfBirth: faker.date.birthdate({ min: 18, max: 65, mode: 'age' }).toLocaleDateString('en-GB'),
+    email: faker.internet.email(),
     phoneCountry: { label: 'France +33' },
     phoneNumber: '0612345678',
 };

@@ -7,8 +7,8 @@ const mockData = {
     pin: '1234',
     confirmPin: '1234',
     hasOtherCard: false,
-    emailPreference: false,
-    smsPhonePostalPreference: false
+    emailPreference: true,
+    phonePreference: false
 };
 
 export class SecurityInformationPage extends BasePage {
@@ -17,7 +17,7 @@ export class SecurityInformationPage extends BasePage {
     private readonly confirmPinInput = this.page.locator('input[id="fieldControl-input-confirmPin"]');
     private readonly otherAmexCardCheckbox = this.page.locator('label[for="fieldControl-input-otherAmexCard"]');
     private readonly marketingEmailPreferenceCheckbox = this.page.locator(`label[for="marketingEmailPreferences-${mockData.emailPreference ? 'true' : 'false'}"]`);
-    private readonly marketingSMSPhonePostalRadio = this.page.locator(`label[for="marketingSMSPhonePostalPreferences-${mockData.emailPreference ? 'OPT_IN' : 'OPT_OUT'}"]`);
+    private readonly marketingSMSPhonePostalRadio = this.page.locator(`label[for="marketingSMSPhonePostalPreferences-${mockData.phonePreference ? 'OPT_IN' : 'OPT_OUT'}"]`);
     private readonly submitButton = this.page.locator('button[type="submit"]');
 
     constructor(page: Page) {
@@ -34,6 +34,16 @@ export class SecurityInformationPage extends BasePage {
         }
 
         await this.marketingEmailPreferenceCheckbox.click();
+        // This is a workaround for the checkbox not being checked on the first click
+        let isChecked = await this.marketingEmailPreferenceCheckbox.isChecked();
+        if (!isChecked) {
+            await this.marketingEmailPreferenceCheckbox.click();
+            isChecked = await this.marketingEmailPreferenceCheckbox.isChecked();
+            if (!isChecked) {
+                throw new Error('Failed to click and check the marketing email preference checkbox.');
+            }
+        }
+
         await this.marketingSMSPhonePostalRadio.click();
     }
 
