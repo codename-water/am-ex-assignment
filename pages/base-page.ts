@@ -8,7 +8,7 @@ export class BasePage {
         this.page = page;
     }
 
-    protected async handleCookieConsent(action: 'accept' | 'reject'): Promise<void> {
+    async handleCookieConsent(action: 'accept' | 'reject'): Promise<void> {
         const cookieHandler = new CookieHandler(this.page);
         await cookieHandler.handleCookieConsent(action);
     }
